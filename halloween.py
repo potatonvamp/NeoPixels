@@ -14,6 +14,7 @@ cyan = (0, 255, 255)
 orange = (255, 64, 0)
 white = (255,255,255)
 black = (0,0,0)
+dark_blue = (0,0,50)
 color_list = [red, green, blue, purple, yellow, cyan, orange]
 fire_list = [red, yellow, orange]
 halloween_list = [orange, purple, green]
@@ -38,7 +39,7 @@ def fire(flicker = 15):
         sparkle(orange, green, 0.2, 0.1)
         sparkle(orange, black, 0.02, 0.1)
 
-def lightning(bg = orange, flash = purple):
+def lightning(bg, flash):
     yes = random.randint(1,2)
     for i in range(yes):
         no = random.randint(1, 3)
@@ -50,7 +51,7 @@ def lightning(bg = orange, flash = purple):
         np.show()
         time.sleep(no)
         
-def fade_out(color, fade_time = .02, number = 50):
+def fade_out(color, fade_time, number = 50):
     red_ratio = color[0] / number
     red_org = color[0]
     green_ratio = color[1] / number
@@ -65,7 +66,7 @@ def fade_out(color, fade_time = .02, number = 50):
         np.show()
         time.sleep(fade_time)
 
-def fade_in(color2, fade_time2 = .02, number2 = 50):
+def fade_in(color2, fade_time2, number2 = 50):
     red_ratio = color2[0] / number2
     red_org = color2[0]
     green_ratio = color2[1] / number2
@@ -104,14 +105,29 @@ def chase2():
             
 while True:
     nice = random.choice(halloween_list)
-    fade_in(purple)
+    fade_in(purple, .02)
     for i in range(5):
-        lightning()
+        lightning(orange, purple)
     chase()
-    fade_out(orange)
+    fade_out(orange, .02)
     chase2()
-    fade_out(purple)
+    fade_out(purple, .02)
     fire()
     for i in range(3):
-        lightning()
+        lightning(orange, purple)
     fire()
+    fade_out(orange, .002)
+    fade_in(dark_blue, 0.02)
+    time.sleep(.2)
+    fade_in(dark_blue, 0.02)
+    time.sleep(.2)
+    fade_in(dark_blue, 0.02)
+    np.fill(dark_blue)
+    for i in range(3):
+        lightning(dark_blue, red)
+    time.sleep(.2)
+    for i in range(3):
+        lightning(dark_blue, red)
+    time.sleep(.2)
+    for i in range(3):
+        lightning(dark_blue, red)
