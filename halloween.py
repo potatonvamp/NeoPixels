@@ -22,7 +22,7 @@ halloween_list = [orange, purple, green]
 
 def sparkle(bg, fg, delay, spark):
     """
-    
+    Makes random lights light up to make a sparkle effet.
     
     Args:
         bg(tuple): the color used in the background of the NeoPixels
@@ -46,8 +46,10 @@ def sparkle(bg, fg, delay, spark):
 
 def fire(flicker = 15):
     """
+    Makes multiple different pixels light up with different colors and brightnesses making a fire effect.
     
-    Args:
+    Args: 
+        flicker(int): How many times the fire will flicker
     
     Return: none
     """
@@ -58,9 +60,12 @@ def fire(flicker = 15):
 
 def lightning(bg, flash):
     """
+    Flashes the neopixels a certain color light.
     
     Args:
-    
+        bg(tuple): picks the color of the background.
+        fg(tuple): picks the color of the lightning flashes.
+        
     Return: none
     """
     yes = random.randint(1,2)
@@ -76,9 +81,13 @@ def lightning(bg, flash):
         
 def fade_out(color, fade_time, number = 50):
     """
+    Makes all the neopixels start at one color and slowly dim until off.
     
     Args:
-    
+        color(tuple): the color it will start at.
+        fade_time(float): how long it will take to fully dim the lights.
+        number(int): Used to divide the colors by 50.
+        
     Return: none
     """
     red_ratio = color[0] / number
@@ -97,8 +106,12 @@ def fade_out(color, fade_time, number = 50):
 
 def fade_in(color2, fade_time2, number2 = 50):
     """
+    Makes all the Neopixels start darkened and they brightne up over time.
     
     Args:
+        color2(tuple): the color it will start at.
+        fade_time2(float): how long it will take to fully dim the lights.
+        number2(int): Used to divide the colors by 50.
     
     Return: none
     """
@@ -118,8 +131,11 @@ def fade_in(color2, fade_time2, number2 = 50):
         
 def chase(col1, col2):
     """
+    Makes sets of two lights go from right to left.
     
     Args:
+        col1(tuple): The color of the two moving lights.
+        col2(tuple): The color between the two moving lights.
     
     Return: none
     """
@@ -135,8 +151,11 @@ def chase(col1, col2):
         
 def chase2(col1, col2):
     """
+    Makes sets of two lights go from the left to the right
     
     Args:
+        col1(tuple): The color of the two moving lights.
+        col2(tuple): The color between the two moving lights.
     
     Return: none
     """
